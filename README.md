@@ -65,7 +65,57 @@ Nota: pilha e registradores não podem ser compartilhados entre as threads. Cada
 Existem dois tipos de threads:
 1. Thread de nível de usuário 
 2. Thread de nível de kernel
+
+
 [Consulte - Difference between User Level thread and Kernel Level thread](https://www.geeksforgeeks.org/difference-between-user-level-thread-and-kernel-level-thread/)
+
+##### [Multithreading Python](https://www.geeksforgeeks.org/multithreading-python-set-1/)
+``` Python
+
+# Python program to illustrate the concept
+# of threading
+# importing the threading module
+import threading
+ 
+ 
+def print_cube(num):
+    # function to print cube of given num
+    print("Cube: {}" .format(num * num * num))
+ 
+ 
+def print_square(num):
+    # function to print square of given num
+    print("Square: {}" .format(num * num))
+ 
+ 
+if __name__ =="__main__":
+    # creating thread
+    t1 = threading.Thread(target=print_square, args=(10,))
+    t2 = threading.Thread(target=print_cube, args=(10,))
+ 
+    # starting thread 1
+    t1.start()
+    # starting thread 2
+    t2.start()
+ 
+    # wait until thread 1 is completely executed
+    t1.join()
+    # wait until thread 2 is completely executed
+    t2.join()
+ 
+    # both threads completely executed
+    print("Done!")
+```
+
+````
+Square: 100
+Cube: 1000
+Done!
+````
+
+
+
+
 
 ##### Questões
 1. https://www.geeksforgeeks.org/gate-gate-cs-2011-question-16/
