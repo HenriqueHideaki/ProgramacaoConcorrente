@@ -37,3 +37,43 @@ A programação paralela se baseia em pegar um problema computacional e dividí-
 <center>
 <img src="img/paralela_2.png" alt="paralela_2" width="300">
 </center>
+
+## Introdução as Threads
+Uma thread é um caminho de execução dentro de um processo. Um processo pode conter vários threads.
+##### Por que Multithreading?
+Uma thread também é conhecido como processo leve. A ideia é alcançar o paralelismo dividindo um processo em várias threads. Por exemplo, em um navegador, várias guias podem ter encadeamentos diferentes. O MS Word usa várias threads: uma thread para formatar o texto, outraa thread para processar entradas, etc. Mais vantagens do multithreading são discutidas abaixo
+#### Processos vs Threads
+A principal diferença é que os encadeamentos dentro do mesmo processo são executados em um espaço de memória compartilhado, enquanto os processos são executados em espaços de memória separados.
+Os threads não são independentes uns dos outros como os processos são, e como resultado, os threads compartilham com outros threads sua seção de código, seção de dados e recursos do sistema operacional (como arquivos abertos e sinais). Mas, como o processo, uma thread tem seu próprio contador de programa (PC), conjunto de registradores e espaço de pilha.
+
+##### Vantagens do Thread sobre o Processo
+
+1. Capacidade de resposta: Se o processo for dividido em vários threads, se um thread concluir sua execução, sua saída poderá ser retornada imediatamente.
+
+2. Troca de contexto mais rápida: O tempo de troca de contexto entre as threads é menor em comparação com a troca de contexto do processo. A comutação de contexto de processo requer mais sobrecarga da CPU.
+
+3. Utilização eficaz do sistema multiprocessador: Se tivermos vários threads em um único processo, podemos agendar vários threads em vários processadores. Isso tornará a execução do processo mais rápida.
+
+4. Compartilhamento de recursos: Recursos como código, dados e arquivos podem ser compartilhados entre todas as threads de um processo.
+Nota: pilha e registradores não podem ser compartilhados entre as threads. Cada thread tem sua própria pilha e registradores.
+
+5. Comunicação: A comunicação entre vários encadeamentos é mais fácil, pois os encadeamentos compartilham um espaço de endereço comum. enquanto em processo temos que seguir alguma técnica de comunicação específica para comunicação entre dois processos.
+
+6. Taxa de transferência aprimorada do sistema: Se um processo for dividido em vários segmentos e cada função de segmento for considerada como um trabalho, o número de trabalhos concluídos por unidade de tempo será aumentado, aumentando assim a taxa de transferência do sistema.
+
+##### Tipos de Threads
+Existem dois tipos de threads:
+1. Thread de nível de usuário 
+2. Thread de nível de kernel
+[Consulte - Difference between User Level thread and Kernel Level thread](https://www.geeksforgeeks.org/difference-between-user-level-thread-and-kernel-level-thread/)
+
+##### Questões
+1. https://www.geeksforgeeks.org/gate-gate-cs-2011-question-16/
+2. https://www.geeksforgeeks.org/gate-gate-cs-2007-question-17/
+3. https://www.geeksforgeeks.org/gate-gate-cs-2014-set-1-question-30/
+
+
+#### Referências
+##### Threads
+1. [Multithreading in C](https://www.geeksforgeeks.org/multithreading-c-2/)
+2. [Thread in operanting system](https://www.geeksforgeeks.org/thread-in-operating-system/)
